@@ -6,5 +6,5 @@ data class CheckUpdateConfig(
     val currentVersion: String,
     val githubToken: String? = null,
     val connectTimeout: Long = 15000,
-    val readTimeout: Long = 15000
+    val readTimeout: Long = 15000,
 )
