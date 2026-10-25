@@ -37,7 +37,7 @@ class GitHubApiClient(private val config: CheckUpdateConfig) {
         return try {
             client.newCall(request).execute().use { response ->
                 if (response.isSuccessful) {
-                    response.body?.string()?.let { body ->
+                    response.body.string().let { body ->
                         parseRelease(body)
                     }
                 } else {
@@ -54,9 +54,9 @@ class GitHubApiClient(private val config: CheckUpdateConfig) {
         return try {
             client.newCall(request).execute().use { response ->
                 if (response.isSuccessful) {
-                    response.body?.string()?.let { body ->
+                    response.body.string().let { body ->
                         parseReleases(body)
-                    } ?: emptyList()
+                    }
                 } else {
                     emptyList()
                 }
